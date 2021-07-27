@@ -10,37 +10,37 @@ library(Metrics)
 library(car)
 library(cowplot)
 
-## Trabajo pr·ctico: ComputaciÛn cientÌfica actuarial.
+## Trabajo pr√°ctico: Computaci√≥n cient√≠fica actuarial.
 
 ## -------------------------------------------------------------------------------------------------------##
 
-## Ejercicio N∞1: An·lisis exploratorio del dataset y preparaciÛn de datos.
+## Ejercicio N¬∞1: An√°lisis exploratorio del dataset y preparaci√≥n de datos.
 
-## ImportaciÛn de datos.
+## Importaci√≥n de datos.
 data <- read_csv('kc_house_data.csv')
 
 ## [1] Chequeo de datos no disponibles. 
-sum(is.na(data)) ## Todos los datos est·n disponibles.
+sum(is.na(data)) ## Todos los datos est√°n disponibles.
 
-## Chequeo de variables categÛricas con {plyr}::count.
+## Chequeo de variables categ√≥ricas con {plyr}::count.
 data %>%
   count(waterfront)
 
 data %>%
-  count(view) ## Se supone que es un factor binario "0-1". Hay n˙mero mayores a 1.
+  count(view) ## Se supone que es un factor binario "0-1". Hay n√∫mero mayores a 1.
 
 data %>%
   count(condition)
 
 data %>%
-  count(grade) ## No deberÌa haber puntuaciones iguales a 12 o 13(Corresponde del 1 al 11).
+  count(grade) ## No deber√≠a haber puntuaciones iguales a 12 o 13(Corresponde del 1 al 11).
 
 ## Chequeo de variables cuantitativas.
 data %>%
-  count(bathrooms) ## No tiene sentido que haya casa sin baÒos. (*)
+  count(bathrooms) ## No tiene sentido que haya casa sin ba√±os. (*)
 
 data %>%
-  count(floors) ## N˙mero decimal de pisos.
+  count(floors) ## N√∫mero decimal de pisos.
 
 data %>%
   count(bedrooms) ## No tiene sentido que haya una casa sin habitaciones. (*)
@@ -55,11 +55,11 @@ clean_data <- data %>%
          sale_month = lubridate::month(date),
          sale_day = lubridate::day(date))
 
-## (*) Los baÒos en EEUU se cuentan por categorÌa. Por ello es que hay notaciÛn decimal.
-## Por ejemplo: si un baÒo tiene sÛlo inodoro y lavamanos se considera "medio baÒo" y se representa con "0.5".
-## (*) Datos que no corresponden con la descripciÛn de la variable ser·n detallados en el informe.
+## (*) Los ba√±os en EEUU se cuentan por categor√≠a. Por ello es que hay notaci√≥n decimal.
+## Por ejemplo: si un ba√±o tiene s√≥lo inodoro y lavamanos se considera "medio ba√±o" y se representa con "0.5".
+## (*) Datos que no corresponden con la descripci√≥n de la variable ser√°n detallados en el informe.
 
-## [2] ConversiÛn de unidades del sistema imperial al sistema mÈtrico.
+## [2] Conversi√≥n de unidades del sistema imperial al sistema m√©trico.
 ## 1 pie cuadrado = 0.092903 metros cuadrados.
 df_metrico <- clean_data %>%
   select(-contains("sqft")) %>%
@@ -74,7 +74,7 @@ df_metrico <- df_metrico %>%
     lubridate::year(Sys.Date()) - yr_renovated,
     lubridate::year(Sys.Date()) - yr_built))
 
-## [4] EstadÌstica descriptiva.
+## [4] Estad√≠stica descriptiva.
 
 ## {base}
 df_metrico %>% 
@@ -132,7 +132,7 @@ boxplot_price <- ggplot(df_metrico, aes(1, price)) +
   scale_x_continuous("", breaks= c()) +
   scale_y_continuous("", labels = scales::dollar_format())
 
-## Variables categÛricas.
+## Variables categ√≥ricas.
 ## Histograma.
 for(j in colnames(cat_vars)){
   assign(paste0("hist_", j), ggplot(df_metrico %>%
@@ -186,7 +186,7 @@ momentos_absolutos <- t(all.moments(df_quants, order.max = 4, absolute = TRUE))
 colnames(momentos_absolutos) <- c("ma0", "ma1", "ma2", "ma3", "ma4")
 rownames(momentos_absolutos) <- names(df_quants)
 
-## [7] CorrelaciÛn.
+## [7] Correlaci√≥n.
 king_corrm <- df_metrico %>%
   select(-c(date, yr_built, yr_renovated)) %>%
   mutate_if(is.factor, as.double) %>%
@@ -195,7 +195,7 @@ king_corrm <- df_metrico %>%
 ggcorrplot(king_corrm, method = "square", type = "lower", lab = TRUE) +
   ggtitle("Matriz de correlaciones.")
 
-## [8] ParticiÛn de datos.
+## [8] Partici√≥n de datos.
 set.seed(1234)
 train_indices <- sample(1:nrow(df_metrico), round(nrow(df_metrico)*.8))
 
@@ -204,9 +204,9 @@ datos_test <- df_metrico[-train_indices,]
 
 ## -------------------------------------------------------------------------------------------------------##
 
-## Ejercicio N∞2: Desarrollo de funciones y regresiÛn.
+## Ejercicio N¬∞2: Desarrollo de funciones y regresi√≥n.
 
-## [1] FunciÛn "normalidad":
+## [1] Funci√≥n "normalidad":
 normalidad <- function(model, method = "jb"){
   residuos <- resid(model)
   if(method == "jb"){
@@ -254,7 +254,7 @@ homocedasticidad<-function(modelo,metodo="bp"){
   }
 }
 
-## [3] FunciÛn "supuestos":
+## [3] Funci√≥n "supuestos":
 supuestos<-function(modelo){
   a<-c(jb.norm.test(resid(modelo))$p.value,dwtest(modelo)$p.value,bptest(modelo)$p.value)
   b<-c(normalidad(modelo),incorrelacion(modelo),homocedasticidad(modelo))
@@ -267,12 +267,12 @@ supuestos<-function(modelo){
   return(A)
 }
 
-## [4] FunciÛn "lm_plus":
+## [4] Funci√≥n "lm_plus":
 lm_plus<-function(modelo){
   return(list(modelo,supuestos(modelo)))
 }
 
-## [5] FunciÛn "aic":
+## [5] Funci√≥n "aic":
 aic <- function(lista){
   if(is.list(lista) == F){
     return("Error. Ingresar una lista compuesta por modelos lineales.")
@@ -285,7 +285,7 @@ aic <- function(lista){
                                  as_tibble(summary(temp_model)$coefficients[,c(1,4)]) %>%
                                    mutate(Decision = ifelse(`Pr(>|t|)` > 0.05, "No significativo", "Significativo")),
                                  supuestos(temp_model) %>%
-                                   mutate(ValidaciÛn = ifelse(`P-Value` > 0.1, "Supuesto validado", "Supuesto no validado"))
+                                   mutate(Validaci√≥n = ifelse(`P-Value` > 0.1, "Supuesto validado", "Supuesto no validado"))
                                  )
     }
     return(lista_resultado)
@@ -295,7 +295,7 @@ aic <- function(lista){
 ## [6] Las 10 variables que mejor explican el precio de venta de una casa del condado de King(2014-2015):
 
 ## Primero eliminemos las variables con dependencia lineal (multicolinealidad).
-## Las variables que cuantifican los metros cuadrados de la vivienda cumplen esta caracterÌstica como
+## Las variables que cuantifican los metros cuadrados de la vivienda cumplen esta caracter√≠stica como
 ## se vio en la matriz de correlaciones.
 model_data <- df_metrico[, c(1,3:22,2)] %>%
   select(-c(sqm_above, sqm_living)) %>% ## sqm_above y sqm_living son LD con sqm_total.
@@ -304,9 +304,9 @@ model_data <- df_metrico[, c(1,3:22,2)] %>%
 full_model_1 <- lm(price ~ . , model_data)
 car::vif(full_model_1) 
 
-## VIF de > 10 indica que la variable explicativa puede ser explicada por las dem·s.
-## Es lÛgico que el aÒo en que se construyÛ la casa explique la antig¸edad de la casa,
-## por eso ser· eliminada.
+## VIF de > 10 indica que la variable explicativa puede ser explicada por las dem√°s.
+## Es l√≥gico que el a√±o en que se construy√≥ la casa explique la antig√ºedad de la casa,
+## por eso ser√° eliminada.
 
 model_data <- model_data %>%
   select(-yr_built)
@@ -334,7 +334,7 @@ aic_df %>%
   top_n(10, -aic) %>%
   arrange(aic)
 
-## Las 10 variables m·s importantes, seg˙n el AIC de modelos lineales simples, son:
+## Las 10 variables m√°s importantes, seg√∫n el AIC de modelos lineales simples, son:
 ## grade
 ## sqm_total
 ## sqm_living15
@@ -346,12 +346,12 @@ aic_df %>%
 ## floors
 ## yr_renovated
 
-## [7] Modelo lineal m˙ltiple, elecciÛn de variables con "forward selection":
-## A˙n cuando se eliminaron variables por multicolinealidad, mediante una inspecciÛn previa, es posible
-## que a˙n haya alguna variable explicativa que sea explicada por el resto de variables independientes.
-## El modelo lineal m˙ltiple pone en evidencia esta caracterÌstica: si agregamos una variable que no aporta
-## informaciÛn al modelo, el AIC la penalizar· y el mÈtodo de "forward selection" elegir· otra variable.
-## Este mÈtodo no elige el mejor modelo sino uno que sea lo suficientemente adecuado sin ser computacionalmente
+## [7] Modelo lineal m√∫ltiple, elecci√≥n de variables con "forward selection":
+## A√∫n cuando se eliminaron variables por multicolinealidad, mediante una inspecci√≥n previa, es posible
+## que a√∫n haya alguna variable explicativa que sea explicada por el resto de variables independientes.
+## El modelo lineal m√∫ltiple pone en evidencia esta caracter√≠stica: si agregamos una variable que no aporta
+## informaci√≥n al modelo, el AIC la penalizar√° y el m√©todo de "forward selection" elegir√° otra variable.
+## Este m√©todo no elige el mejor modelo sino uno que sea lo suficientemente adecuado sin ser computacionalmente
 ## prohibitivo.
 
 forward_selection_model <- regsubsets(price~., data = model_data,
@@ -359,10 +359,10 @@ forward_selection_model <- regsubsets(price~., data = model_data,
                                       method = "forward")
 summary(forward_selection_model)
 
-## Las primeras 10 variables elegidas por el mÈtodo son:
+## Las primeras 10 variables elegidas por el m√©todo son:
 ## sqm_total, waterfront, home_age, grade, yr_renovated, bathrooms, bedrooms, view, sqm_lot15, condition.
 
-## Luego, con las variables elegidas, se ajustar· un modelo lineal m˙ltiple con training data.
+## Luego, con las variables elegidas, se ajustar√° un modelo lineal m√∫ltiple con training data.
 train_data <- datos_train %>%
   select(sqm_total, waterfront, home_age, grade, yr_renovated, bathrooms, bedrooms, view, sqm_lot15, condition, price)
 
@@ -405,7 +405,7 @@ test_MAPE <- Metrics::mape(Y_test, model_pred)
 train_MAPE <- Metrics::mape( as.numeric(t(train_data[, which(colnames(train_data) == 'price')])),
                              exp(log_mlr_model$fitted.values))
 
-## La poca diferencia entre las medidas de evaluaciÛn para training y testing data indica que no hay
+## La poca diferencia entre las medidas de evaluaci√≥n para training y testing data indica que no hay
 ## overfitting.
 ## test_MAPE = 26.25%
 ## train_MAPE = 25.87%
