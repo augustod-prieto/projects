@@ -1,8 +1,8 @@
-## Aplicaci髇 de GLM en Loss Reserving. ##
+## Aplicaci贸n de GLM en Loss Reserving. ##
 library(tidyverse)
 library(ChainLadder)
 
-## Preparaci髇 de datos.
+## Preparaci贸n de datos.
 data_2011 <- readxl::read_excel("ssn_20162017_desarrollo_siniestros_automotores.xlsx", sheet = 8)[15,c(7,11,15,19,23)]
 data_2010 <- readxl::read_excel("ssn_20162017_desarrollo_siniestros_automotores.xlsx", sheet = 9)[15,c(7,11,15,19,23)]
 data_2009 <- readxl::read_excel("ssn_20162017_desarrollo_siniestros_automotores.xlsx", sheet = 10)[15,c(7,11,15,19,23)]
@@ -24,19 +24,19 @@ for(i in 5:2){
   }
 }
 
-## M閠odo Chain-Ladder.
+## M茅todo Chain-Ladder.
 mack_reserves <- MackChainLadder(model_data)
 
 ## Chain-Ladder como caso particular de GLM. Over-dispersed Poisson, i.e, tweedie p = 1.
 od_poisson_reserves <- glmReserve(model_data)
 
-## GLM - Distribuci髇 Tweedie con "p" estimado, donde 1 < p < 2, es decir, es una distribuci髇 compuesta Poisson/Gamma.
+## GLM - Distribuci贸n Tweedie con "p" estimado, donde 1 < p < 2, es decir, es una distribuci贸n compuesta Poisson/Gamma.
 poisson_gamma_reserves <- glmReserve(model_data, var.power = NULL)
 
-## GLM - Distribuci髇 normal, i.e, tweedie p = 0.
+## GLM - Distribuci贸n normal, i.e, tweedie p = 0.
 gaussian_reserves <- glmReserve(model_data, var.power = 0)
 
-## Validaci髇 por Out Of Sample validation en el contexto de Loss Reserving.
+## Validaci贸n por Out Of Sample validation en el contexto de Loss Reserving.
 triangle_rmse <- function(true_data, predicted_data){
   triangle_rmse <- list("pointwise_rmse"=c(), "total_rmse" = "")
   triangle_rmse[[1]] <- seq(1,5)
