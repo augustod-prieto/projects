@@ -14,7 +14,7 @@ En este trabajo se supone un derivado exótico con cierto payoff y se calcula el
 
 ![gitdw](https://user-images.githubusercontent.com/87995100/129102694-78919a8e-b606-4a4c-b144-2b7264d5f35d.png)
 
-## Predicción de venta de casas: Aplicación de regresión lineal múltiple.
+## Predicción de venta de casas: Aplicación de regresión lineal múltiple
 
 Este proyecto se puede ver en [Proyecto_prediccion_venta_casas](https://github.com/augustod-prieto/projects/blob/6fc6e00e9ad12341dcd9ceeec64b87f8bce6fa32/Proyecto_prediccion_venta_casas.pdf). En el mismo se realiza exploratory data analysis, feature engineering
 y luego se aplica un modelo de regresión múltiple para predecir el precio de venta de las casas en el condado de King, Washington entre 2014 y 2015.
