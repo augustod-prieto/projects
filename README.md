@@ -6,6 +6,9 @@ En el mismo se evalúan los modelos lineales generalizados para el cálculo de r
 
 Si desea ejecutar el código, descargar [ssn_20162017_desarrollo_siniestros_automotores.xlsx](https://github.com/augustod-prieto/projects/blob/aaf2ddb39961cff402519f8ed7b3c69c761642df/ssn_20162017_desarrollo_siniestros_automotores.xlsx) y [Script_Loss_reserving_GLM.R](https://github.com/augustod-prieto/projects/blob/aaf2ddb39961cff402519f8ed7b3c69c761642df/Script_Loss_reserving_GLM.R) en su directorio de R.
 
+![gitdw](https://user-images.githubusercontent.com/87995100/129102694-78919a8e-b606-4a4c-b144-2b7264d5f35d.png)
+
+
 ## Valuación de un derivado exótico a través de simulación de Montecarlo
 
 Para ver el proyecto se debe descargar [Proyecto_derivado_simulacion.xlsm](https://github.com/augustod-prieto/projects/blob/aaf2ddb39961cff402519f8ed7b3c69c761642df/Proyecto_derivado_simulacion.xlsm). Luego, se deben habilitar los macros de VBA en Excel para ejecutar el código.
