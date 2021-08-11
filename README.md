@@ -1,20 +1,20 @@
 # Bienvenido al repositorio de proyectos
 ## Loss Reserving: Aplicación de modelos lineales generalizados mixtos a datos agrupados
 
-Este proyecto se puede ver en [Proyecto_Loss_reserving_GLM](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/loss_reserving_glm/Proyecto_Loss_reserving_GLM.pdf).
+Este proyecto se encuentra en la carpeta `loss_reserving_glm`. Luego, se puede observar en [Proyecto_Loss_reserving_GLM](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/loss_reserving_glm/Proyecto_Loss_reserving_GLM.pdf).
 En el mismo se evalúan los modelos lineales generalizados para el cálculo de reservas con datos de la SSN para el ramo automotor y cuyo hecho generador del siniestro es el "daño total". 
 
 Si desea ejecutar el código, descargar [ssn_20162017_desarrollo_siniestros_automotores.xlsx](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/loss_reserving_glm/ssn_20162017_desarrollo_siniestros_automotores.xlsx) y [Script_Loss_reserving_GLM.R](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/loss_reserving_glm/Script_Loss_reserving_GLM.R) en su directorio de R.
 
 ## Valuación de un derivado exótico a través de simulación de Montecarlo
 
-Para ver el proyecto se debe descargar [Proyecto_derivado_simulacion.xlsm](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/exotic_derivative_mc/Proyecto_derivado_simulacion.xlsm). Luego, se deben habilitar los macros de VBA en Excel para ejecutar el código.
+El trabajo se encuentra en la carpeta `exotic_derivative_mc`, donde hay un preview del mismo. Para verlo en su totalidad, se debe descargar [Proyecto_derivado_simulacion.xlsm](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/exotic_derivative_mc/Proyecto_derivado_simulacion.xlsm). Luego, se deben habilitar los macros de VBA en Excel para ejecutar el código.
 
 En este trabajo se supone un derivado exótico con cierto payoff y se calcula el precio a través de la simulación de 1, 100 ó 500 escenarios. El desarrollo teórico del proyecto se encuentra plasmado en las hojas de cálculo.
 
 ## Predicción de venta de casas: Aplicación de regresión lineal múltiple
 
-Este proyecto se puede ver en [Proyecto_prediccion_venta_casas](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/house_sales_mlr/Proyecto_prediccion_venta_casas.pdf). En el mismo se realiza exploratory data analysis, feature engineering
+Encontrándose en la carpeta `house_sales_mlr`, el proyecto se puede ver en [Proyecto_prediccion_venta_casas](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/house_sales_mlr/Proyecto_prediccion_venta_casas.pdf). En el mismo se realiza exploratory data analysis, feature engineering
 y luego se aplica un modelo de regresión múltiple para predecir el precio de venta de las casas en el condado de King, Washington entre 2014 y 2015.
 
 Para ejecutar el código, descargar [kc_house_data.csv](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/house_sales_mlr/kc_house_data.csv) y [Script_prediccion_venta_casas.R](https://github.com/augustod-prieto/projects/blob/dab590b655a785b5b5de98c6f2bc6e79795b9b53/house_sales_mlr/Script_prediccion_venta_casas.R) en su directorio de R.
