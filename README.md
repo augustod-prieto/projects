@@ -8,7 +8,7 @@ Si desea ejecutar el código, descargar [ssn_20162017_desarrollo_siniestros_auto
 
 ## Valuación de un derivado exótico a través de simulación de Montecarlo
 
-El trabajo se encuentra en la carpeta `exotic_derivative_mc`, donde hay un preview del mismo. Para verlo en su totalidad, se debe descargar [Proyecto_derivado_simulacion.xlsm](https://github.com/augustod-prieto/projects/raw/main/exotic_derivative_mc/Proyecto_derivado_simulacion.xlsm). Luego, se deben habilitar los macros de VBA en Excel para ejecutar el código.
+El trabajo se encuentra en la carpeta `exotic_derivative_mc`, donde hay una preview del mismo. Para verlo en su totalidad, se debe descargar [Proyecto_derivado_simulacion.xlsm](https://github.com/augustod-prieto/projects/raw/main/exotic_derivative_mc/Proyecto_derivado_simulacion.xlsm). Luego, se deben habilitar los macros de VBA en Excel para ejecutar el código.
 
 En este trabajo se supone un derivado exótico con cierto payoff y se calcula el precio a través de la simulación de 1, 100 ó 500 escenarios. El desarrollo teórico del proyecto se encuentra plasmado en las hojas de cálculo.
 
