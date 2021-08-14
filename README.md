@@ -1,10 +1,10 @@
 # Bienvenido al repositorio de proyectos
 ## Loss Reserving: Aplicación de modelos lineales generalizados mixtos a datos agrupados
 
-Este proyecto se encuentra en la carpeta `loss_reserving_glm`. Luego, se puede observar clickeando en [Proyecto_Loss_reserving_GLM](https://augustod-prieto.github.io/pdf_folder/Proyecto_loss_reserving_glm.pdf){:target="_blank"}.
+Este proyecto se encuentra en la carpeta `loss_reserving_glm`. Luego, se puede observar clickeando en [Proyecto_Loss_reserving_GLM](https://augustod-prieto.github.io/pdf_folder/Proyecto_loss_reserving_glm.pdf).
 En el mismo se evalúan los modelos lineales generalizados para el cálculo de reservas con datos de la SSN para el ramo automotor y cuyo hecho generador del siniestro es el "daño total". 
 
-Si desea ejecutar el código, descargar [ssn_20162017_desarrollo_siniestros_automotores.xlsx](https://github.com/augustod-prieto/projects/raw/main/loss_reserving_glm/ssn_20162017_desarrollo_siniestros_automotores.xlsx) y [Script_Loss_reserving_GLM.R](https://github.com/augustod-prieto/projects/blob/095cc87fba8db91118f77b01eb56ca19f1a9c60b/loss_reserving_glm/Script_Loss_reserving_GLM.R){:target="_blank"} en su directorio de R.
+Si desea ejecutar el código, descargar [ssn_20162017_desarrollo_siniestros_automotores.xlsx](https://github.com/augustod-prieto/projects/raw/main/loss_reserving_glm/ssn_20162017_desarrollo_siniestros_automotores.xlsx) y [Script_Loss_reserving_GLM.R](https://github.com/augustod-prieto/projects/blob/095cc87fba8db91118f77b01eb56ca19f1a9c60b/loss_reserving_glm/Script_Loss_reserving_GLM.R) en su directorio de R.
 
 ## Valuación de un derivado exótico a través de simulación de Montecarlo
 
@@ -14,7 +14,7 @@ En este trabajo se supone un derivado exótico con cierto payoff y se calcula el
 
 ## Predicción de venta de casas: Aplicación de regresión lineal múltiple
 
-Encontrándose en la carpeta `house_sales_mlr`, el proyecto se puede ver clickeando en [Proyecto_prediccion_venta_casas](https://augustod-prieto.github.io/pdf_folder/Proyecto_prediccion_venta_casas.pdf){:target="_blank"}. En el mismo se realiza exploratory data analysis, feature engineering
+Encontrándose en la carpeta `house_sales_mlr`, el proyecto se puede ver clickeando en [Proyecto_prediccion_venta_casas](https://augustod-prieto.github.io/pdf_folder/Proyecto_prediccion_venta_casas.pdf). En el mismo se realiza exploratory data analysis, feature engineering
 y luego se aplica un modelo de regresión múltiple para predecir el precio de venta de las casas en el condado de King, Washington entre 2014 y 2015.
 
-Para ejecutar el código, descargar [kc_house_data.csv](https://github.com/augustod-prieto/projects/blob/095cc87fba8db91118f77b01eb56ca19f1a9c60b/house_sales_mlr/kc_house_data.csv) y [Script_prediccion_venta_casas.R](https://github.com/augustod-prieto/projects/blob/095cc87fba8db91118f77b01eb56ca19f1a9c60b/house_sales_mlr/Script_prediccion_venta_casas.R){:target="_blank"} en su directorio de R.
+Para ejecutar el código, descargar [kc_house_data.csv](https://github.com/augustod-prieto/projects/blob/095cc87fba8db91118f77b01eb56ca19f1a9c60b/house_sales_mlr/kc_house_data.csv) y [Script_prediccion_venta_casas.R](https://github.com/augustod-prieto/projects/blob/095cc87fba8db91118f77b01eb56ca19f1a9c60b/house_sales_mlr/Script_prediccion_venta_casas.R) en su directorio de R.
